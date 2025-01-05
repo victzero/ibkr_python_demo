@@ -1,14 +1,14 @@
 from ib_insync import IB, util
 
-print("Hello, World!")
-
 def main():
     # 创建 IB 实例
     ib = IB()
     
     try:
         # 添加连接状态检查
-        ib.connect('127.0.0.1', 4001, clientId=2)
+        print('before connecting...')
+        ib.connect('127.0.0.1', 4001, clientId=2, readonly=True)
+        print('connected.')
         if not ib.isConnected():
             print("无法连接到 IB Gateway，请检查:")
             print("1. IB Gateway 是否已启动")
